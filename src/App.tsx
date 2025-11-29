@@ -1,10 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { SideNavigationBar } from './components/SideNavigationBar';
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
+      <SideNavigationBar></SideNavigationBar>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -21,6 +23,4 @@ function App() {
       </header>
     </div>
   );
-}
-
-export default App;
+};
