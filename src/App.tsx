@@ -1,27 +1,27 @@
+import { SideNavigation } from './components/SideNavigation';
+import { MyAppBar } from './components/MyAppBar';
+import { BrowserRouter, Route, Routes } from 'react-router';
+import { Homepage } from './pages/Homepage';
+import { Box, CssBaseline, Toolbar } from '@mui/material';
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
-import { AppBar, Button, Drawer, List, Toolbar, Typography } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [header, setHeader] = useState('');
   return (
     <>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
+      <Box sx={{ display: 'flex' }}>
+        <BrowserRouter>
+          <CssBaseline />
+          <MyAppBar header={header} />
+          <SideNavigation setHeader={setHeader} />
+          <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}>
+            <Toolbar />
+            <Routes>
+              <Route path="/" element={<Homepage />}></Route>
+            </Routes>
+          </Box>
+        </BrowserRouter>
+      </Box>
     </>
   );
 }
