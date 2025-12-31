@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import { Homepage } from './pages/Homepage';
 import { Box, CssBaseline, Toolbar } from '@mui/material';
 import { useState } from 'react';
-import { Contacts } from '@mui/icons-material';
+import { Contact } from './pages/Contacts';
 
 function App() {
   const [header, setHeader] = useState('');
@@ -19,7 +19,7 @@ function App() {
             <Toolbar />
             <Routes>
               <Route path="/" element={<Homepage />}></Route>
-              <Route path="/contacts" element={<Contacts />}></Route>
+              <Route path="/contact" element={<Contact />}></Route>
             </Routes>
           </Box>
         </BrowserRouter>

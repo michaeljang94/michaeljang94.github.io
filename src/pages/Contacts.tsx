@@ -1,3 +1,3 @@
-export const Contacts: React.FC = () => {
+export const Contact: React.FC = () => {
   return <></>;
 };
