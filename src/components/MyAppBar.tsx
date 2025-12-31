@@ -1,21 +1,26 @@
-import { AppBar, Toolbar, Typography } from '@mui/material';
-import { SIDE_NAVIGATION_WIDTH } from './SideNavigation';
+import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 
 export interface MyAppBarProps {
   header?: string;
+  setNavbarOpen: (open: boolean) => void;
 }
-export const MyAppBar: React.FC<MyAppBarProps> = ({ header }) => {
+export const MyAppBar: React.FC<MyAppBarProps> = ({ header, setNavbarOpen }) => {
   return (
     <>
-      <AppBar
-        position="fixed"
-        sx={{
-          width: `calc(100% - ${SIDE_NAVIGATION_WIDTH}px)`,
-          ml: `${SIDE_NAVIGATION_WIDTH}px`,
-          backgroundColor: 'white',
-        }}
-      >
+      <AppBar position="fixed" sx={{ backgroundColor: 'white' }}>
         <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            aria-label="menu"
+            sx={{ mr: 2, color: 'black' }}
+            onClick={() => {
+              setNavbarOpen(true);
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
           <Typography
             variant="h6"
             noWrap

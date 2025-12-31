@@ -8,13 +8,20 @@ import { Contact } from './pages/Contacts';
 
 function App() {
   const [header, setHeader] = useState('');
+  const [open, setOpen] = useState(false);
   return (
     <>
       <Box sx={{ display: 'flex' }}>
         <BrowserRouter>
           <CssBaseline />
-          <MyAppBar header={header} />
-          <SideNavigation setHeader={setHeader} />
+          <MyAppBar setNavbarOpen={setOpen} header={header} />
+          <SideNavigation
+            open={open}
+            onClose={() => {
+              setOpen(false);
+            }}
+            setHeader={setHeader}
+          />
           <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}>
             <Toolbar />
             <Routes>

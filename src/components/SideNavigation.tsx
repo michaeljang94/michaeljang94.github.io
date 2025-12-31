@@ -20,9 +20,11 @@ export const SIDE_NAVIGATION_WIDTH = 250;
 
 export interface SideNavigationProps {
   setHeader: Dispatch<SetStateAction<string>>;
+  open: boolean;
+  onClose: () => void;
 }
 
-export const SideNavigation: React.FC<SideNavigationProps> = ({ setHeader }) => {
+export const SideNavigation: React.FC<SideNavigationProps> = ({ setHeader, open, onClose }) => {
   const navigate = useNavigate();
 
   const DrawerList = (
@@ -91,18 +93,7 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({ setHeader }) => 
   );
   return (
     <>
-      <Drawer
-        variant="permanent"
-        sx={{
-          width: SIDE_NAVIGATION_WIDTH,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: SIDE_NAVIGATION_WIDTH,
-            boxSizing: 'border-box',
-          },
-        }}
-        anchor="left"
-      >
+      <Drawer open={open} onClose={onClose} anchor="left">
         {DrawerList}
       </Drawer>
     </>
