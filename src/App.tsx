@@ -5,6 +5,9 @@ import { Homepage } from './pages/Homepage';
 import { Box, CssBaseline, Toolbar } from '@mui/material';
 import { useState } from 'react';
 import { Contact } from './pages/Contacts';
+import { ProjectsPage } from './pages/ProjectsPage';
+
+import './App.css';
 
 function App() {
   const [header, setHeader] = useState('');
@@ -27,6 +30,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Homepage />}></Route>
               <Route path="/contact" element={<Contact />}></Route>
+              <Route path="/projects" element={<ProjectsPage />}></Route>
             </Routes>
           </Box>
         </BrowserRouter>

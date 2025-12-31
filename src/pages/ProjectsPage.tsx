@@ -1,6 +1,6 @@
 import { PlaceholderLandingPage } from './PlaceholderLandingPage';
 
-export const Contact: React.FC = () => {
+export const ProjectsPage: React.FC = () => {
   return (
     <>
       <PlaceholderLandingPage />

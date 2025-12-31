@@ -12,6 +12,7 @@ import {
 import MailIcon from '@mui/icons-material/Mail';
 import HomeIcon from '@mui/icons-material/Home';
 import WorkIcon from '@mui/icons-material/Work';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 import { useNavigate } from 'react-router';
 import type { Dispatch, SetStateAction } from 'react';
@@ -85,6 +86,22 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({ setHeader, open,
               <MailIcon />
             </ListItemIcon>
             <ListItemText primary={'Contact'} />
+          </ListItemButton>
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem key={'Contact'} disablePadding>
+          <ListItemButton
+            onClick={() => {
+              window.open('https://github.com/michaeljang94');
+              //   navigate('https://github.com/michaeljang94');
+            }}
+          >
+            <ListItemIcon>
+              <GitHubIcon />
+            </ListItemIcon>
+            <ListItemText primary={'GitHub'} />
           </ListItemButton>
         </ListItem>
       </List>
