@@ -1,6 +1,6 @@
 import { SideNavigation } from './components/SideNavigation';
 import { MyAppBar } from './components/MyAppBar';
-import { BrowserRouter, Route, Routes } from 'react-router';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router';
 import { Homepage } from './pages/Homepage';
 import { Box, CssBaseline, Toolbar } from '@mui/material';
 import { useState } from 'react';
@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Box sx={{ display: 'flex' }}>
-        <BrowserRouter>
+        <HashRouter>
           <CssBaseline />
           <MyAppBar setNavbarOpen={setOpen} header={header} />
           <SideNavigation
@@ -33,7 +33,7 @@ function App() {
               <Route path="/projects" element={<ProjectsPage />}></Route>
             </Routes>
           </Box>
-        </BrowserRouter>
+        </HashRouter>
       </Box>
     </>
   );
