@@ -1,6 +1,6 @@
 import { SideNavigation } from './components/SideNavigation';
 import { MyAppBar } from './components/MyAppBar';
-import { HashRouter, Route, Routes, useLocation } from 'react-router';
+import { HashRouter, Route, Routes } from 'react-router';
 import { Homepage } from './pages/Homepage';
 import { Box, CssBaseline, Toolbar } from '@mui/material';
 import { useState } from 'react';
