@@ -1,11 +1,13 @@
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useLocation } from 'react-router';
 
 export interface MyAppBarProps {
-  header?: string;
   setNavbarOpen: (open: boolean) => void;
 }
-export const MyAppBar: React.FC<MyAppBarProps> = ({ header, setNavbarOpen }) => {
+export const MyAppBar: React.FC<MyAppBarProps> = ({ setNavbarOpen }) => {
+  const header = useLocation().pathname.split('/')[1];
+
   return (
     <>
       <AppBar position="fixed" sx={{ backgroundColor: 'white' }}>

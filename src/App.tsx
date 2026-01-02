@@ -1,6 +1,6 @@
 import { SideNavigation } from './components/SideNavigation';
 import { MyAppBar } from './components/MyAppBar';
-import { HashRouter, Route, Routes } from 'react-router';
+import { HashRouter, Route, Routes, useLocation } from 'react-router';
 import { Homepage } from './pages/Homepage';
 import { Box, CssBaseline, Toolbar } from '@mui/material';
 import { useState } from 'react';
@@ -10,20 +10,18 @@ import { ProjectsPage } from './pages/ProjectsPage';
 import './App.css';
 
 function App() {
-  const [header, setHeader] = useState('');
   const [open, setOpen] = useState(false);
   return (
     <>
       <Box sx={{ display: 'flex' }}>
         <HashRouter>
           <CssBaseline />
-          <MyAppBar setNavbarOpen={setOpen} header={header} />
+          <MyAppBar setNavbarOpen={setOpen} />
           <SideNavigation
             open={open}
             onClose={() => {
               setOpen(false);
             }}
-            setHeader={setHeader}
           />
           <Box component="main" sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}>
             <Toolbar />

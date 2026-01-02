@@ -14,19 +14,18 @@ import HomeIcon from '@mui/icons-material/Home';
 import WorkIcon from '@mui/icons-material/Work';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-import { useNavigate } from 'react-router';
-import type { Dispatch, SetStateAction } from 'react';
+import { useLocation, useNavigate } from 'react-router';
 
 export const SIDE_NAVIGATION_WIDTH = 250;
 
 export interface SideNavigationProps {
-  setHeader: Dispatch<SetStateAction<string>>;
   open: boolean;
   onClose: () => void;
 }
 
-export const SideNavigation: React.FC<SideNavigationProps> = ({ setHeader, open, onClose }) => {
+export const SideNavigation: React.FC<SideNavigationProps> = ({ open, onClose }) => {
   const navigate = useNavigate();
+  const header = useLocation().pathname.split('/')[1];
 
   const DrawerList = (
     <>
@@ -49,9 +48,9 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({ setHeader, open,
         <ListItem key={'Home'} disablePadding>
           <ListItemButton
             onClick={() => {
-              setHeader('Home');
               navigate('/');
             }}
+            selected={header === ''}
           >
             <ListItemIcon>
               <HomeIcon />
@@ -62,9 +61,9 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({ setHeader, open,
         <ListItem key={'Projects'} disablePadding>
           <ListItemButton
             onClick={() => {
-              setHeader('Projects');
               navigate('/projects');
             }}
+            selected={header === 'projects'}
           >
             <ListItemIcon>
               <WorkIcon />
@@ -78,9 +77,9 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({ setHeader, open,
         <ListItem key={'Contact'} disablePadding>
           <ListItemButton
             onClick={() => {
-              setHeader('Contacts');
               navigate('/contact');
             }}
+            selected={header === 'contact'}
           >
             <ListItemIcon>
               <MailIcon />
@@ -95,7 +94,6 @@ export const SideNavigation: React.FC<SideNavigationProps> = ({ setHeader, open,
           <ListItemButton
             onClick={() => {
               window.open('https://github.com/michaeljang94');
-              //   navigate('https://github.com/michaeljang94');
             }}
           >
             <ListItemIcon>
